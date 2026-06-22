@@ -1,81 +1,167 @@
-# CRM-SaaS
-application web de gestion des stocks permettant de suivre les mouvements de marchandises, les entrepôts, les utilisateurs et les niveaux de stock en temps réel.
+# CRM-SaaS – Gestion des Stocks et des Flux Logistiques
 
-Le projet est développé avec Django et MySQL, avec une interface moderne en HTML, CSS, Bootstrap et JavaScript.
+Application web développée avec **Django** permettant de gérer les stocks, les mouvements de marchandises, les utilisateurs et les entrepôts.
 
-# Objectifs
-Digitaliser la gestion des stocks.
-Sécuriser les accès selon les profils utilisateurs.
-Suivre les entrées, sorties et transferts de stock.
-Fournir un tableau de bord de suivi.
-Préparer une API destinée à une application mobile.
-# Fonctionnalités
-Gestion des utilisateurs
-Authentification par email
-Gestion des rôles :
-Administrateur
-Superviseur
-Agent
-Hachage sécurisé des mots de passe
-Gestion des permissions
-# Gestion des entrepôts
-Création
-Modification
-Suppression
-Activation / Désactivation
-# Gestion des produits
-Création des produits
-Catégorisation
-Référence produit
-Stock minimum
-# Gestion des mouvements
-Entrée de stock
-Sortie de stock
-Historique des mouvements
-Validation des opérations
-# Gestion du stock
-Calcul automatique des quantités
-État du stock par entrepôt
-Badges de disponibilité
-Coloration automatique des lignes :
-  Rupture de stock
-  Stock critique
-  Stock faible
-  Stock normal
-# Tableau de bord
-Nombre de produits
-Nombre d'utilisateurs
-Nombre d'entrepôts
-Statistiques des mouvements
-# Sécurité
-Connexion sécurisée
-Contrôle d'accès selon les rôles
-Pages d'erreurs personnalisées (403, 404, 500)
-Protection CSRF
-Validation des formulaires
-# Déploiement
-Hébergement sur un serveur mutualisé
-Configuration des fichiers statiques
-Base de données MySQL
-# API REST
-Développement d'une API REST permettant à une application mobile de :
-  Consulter les stocks
-  Effectuer des mouvements
-  Synchroniser les données
-# Technologies
-Backend
-  Python
-  Django
-  Django REST Framework
-  MySQL
-# Frontend
-  HTML5
-  CSS3
-  Bootstrap
-  JavaScript
-  AJAX
-# Outils
+## Présentation
 
-Git
-GitHub
-VS Code
+Ce projet a été conçu afin de digitaliser la gestion des stocks d'une entreprise. Il permet un suivi fiable des entrées, sorties et transferts de produits, avec une gestion des droits d'accès selon les profils utilisateurs.
+
+Le projet est actuellement en évolution avec l'ajout d'une API REST destinée à une future application mobile.
+
+---
+
+## Fonctionnalités
+
+### Authentification
+
+- Connexion par email
+- Mot de passe sécurisé (hash Django)
+- Gestion des rôles
+- Permissions selon le profil
+
+### Gestion des utilisateurs
+
+- Création
+- Modification
+- Désactivation
+
+### Gestion des entrepôts
+
+- Création
+- Modification
+- Suppression
+
+### Gestion des produits
+
+- Référencement
+- Catégorisation
+- Stock minimum
+
+### Gestion des mouvements
+
+- Entrée de stock
+- Sortie de stock
+- Historique des mouvements
+
+### Gestion du stock
+
+- Calcul automatique des quantités
+- États des stocks
+- Alertes visuelles
+
+### API REST
+
+- Authentification
+- Consultation des stocks
+- Synchronisation avec une application mobile
+
+---
+
+## Technologies
+
+### Backend
+
+- Python
+- Django
+- Django REST Framework
+- MySQL
+
+### Frontend
+
+- HTML5
+- CSS3
+- Bootstrap
+- JavaScript
+- AJAX
+
+### Outils
+
+- Git
+- GitHub
+- Visual Studio Code
+
+---
+
+## Captures d'écran
+
+### Tableau de bord
+
+![Dashboard](screenshots/dashboard.png)
+
+### Gestion des stocks
+
+![Stock](screenshots/stock.png)
+
+### Gestion des mouvements
+
+![Mouvements](screenshots/mouvements.png)
+
+### Gestion des utilisateurs
+
+![Utilisateurs](screenshots/utilisateurs.png)
+
+---
+
+## Installation
+
+```bash
+git clone https://github.com/tontonbill89/CRM-Saas.git
+
+cd CRM-Saas
+
+python -m venv envsdf
+```
+
+### Windows
+
+```bash
+envsdf\Scripts\activate
+```
+
+Installer les dépendances
+
+```bash
+pip install -r requirements.txt
+```
+
+Appliquer les migrations
+
+```bash
+python manage.py migrate
+```
+
+Lancer le serveur
+
+```bash
+python manage.py runserver
+```
+
+---
+
+## Sécurité
+
+- Authentification Django
+- Protection CSRF
+- Permissions par rôle
+- Gestion des erreurs personnalisées
+- Mots de passe hashés
+
+---
+
+## Améliorations prévues
+
+- Tableau de bord analytique
+- Notifications
+- Scan de codes-barres / QR Codes
+- Génération PDF
+- Export Excel
+- Inventaire mobile
+- Synchronisation hors ligne
+
+---
+
+## Auteur
+
+**Moussa Bill Keita**
+
+Projet réalisé dans le cadre de mon apprentissage du développement Full Stack avec Django.
