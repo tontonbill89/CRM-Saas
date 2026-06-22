@@ -1,0 +1,174 @@
+<!-- templates/dashboard.html -->
+
+{% extends 'dashboard/base.html' %}
+
+{% block content %}
+{% load static %}
+
+<h3 class="mb-4">Rapport Paramétré</h3>
+
+<div class="row mb-4">
+    <div class="col-md-3">
+        <label></label>
+        <input type="date" id="date_start" class="form-control">
+    </div>
+    <div class="col-md-3">
+        <label></label>
+        <input type="date" id="date_end" class="form-control">
+    </div>
+    <div class="col-md-2">
+        <label></label>
+        
+            <select id="filterEquipe" class="form-select w-auto">
+                <option value=""></option>
+            </select>
+        
+    </div>
+    <div class="col-md-2">
+        <label></label>
+        <select id="filterSecteur" class="form-select w-auto ">
+            <option value=""></option>
+        </select>
+    </div>
+    
+</div>
+
+<div class="row mt-4 g-3">
+
+    <div class="col-md-3">
+        <div class="card-stat bg-dark-custom">
+            <h3 id="nombre_clients_kpi">0</h3>
+            <p>Client inscrit</p>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card-stat bg-purple">
+            <h3 id="nombre_produits_kpi">0</h3>
+            <p>Produit SDF</p>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card-stat bg-purple">
+            <h3 id="moyenne_visite_jour_kpi">0</h3>
+            <p>Moyenne vistes / jour</p>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card-stat bg-green">
+            <h3 id="nombre_visites_kpi">00</h3>
+            <p>Visites réalisées</p>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card-stat bg-blue">
+            <h3 id="clients_visites_kpi">00</h3>
+            <p>Clients visités</p>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card-stat bg-green">
+            <h3 id="conversion_kpi">00%</h3>
+            <p>Taux de conversion</p>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card-stat bg-blue">
+            <h3 id="couverture_kpi">00%</h3>
+            <p>Couverture client</p>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card-stat bg-orange">
+            <h3 id="montant_ventes_kpi">0</h3>
+            <p>Montant ventes</p>
+        </div>
+    </div>
+
+</div>
+
+<div class="row ">
+    <div class="col-md-7">
+        <div class="card mt-5 p-4">
+            <h5>Evolution des ventes</h5>
+            <canvas id="evolutionChart"></canvas>
+        </div>
+    </div>
+    <div class="col-md-5">
+        <div class="card mt-5 p-4">
+            <h5>Top Produits</h5>
+            <canvas id="topProduitChart"></canvas>
+        </div>
+    </div>
+</div>
+
+<div class="card mt-4 p-3">
+    <h5>Carte des clients</h5>
+    <div id="map" style="height:500px;"></div>
+</div>
+
+<div class="card mt-4 p-3">
+    <h5>Liste des visites</h5>
+    <div class="table-responsive">
+        <div class="mb-3">
+            <button class="btn btn-success" onclick="exportExcel()">Export Excel</button>
+            <button class="btn btn-danger" onclick="exportPDF()">Export PDF</button>
+        </div>
+        <small id="tableInfoVisite" class="text-muted"></small>
+        <table class="table table-hover align-middle">
+            <thead>
+                <tr>
+                    <th scope="col">Nom boutique</th>
+                    <th scope="col">Sous catégorie</th>
+                    <th scope="col">Catégorie</th>
+                    <th scope="col">Quartier</th>
+                    <th scope="col">Nom agent</th>
+                    <th scope="col">Date de visite</th>
+                    <th scope="col">Heure début</th>
+                    <th scope="col">Heure fin</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody id="visitesTable" class="table-group-divider"></tbody>
+        </table>
+    </div>
+    <nav>
+        <ul class="pagination justify-content-center mt-3" id="visitesPagination"></ul>
+    </nav>
+</div>
+
+<div class="card mt-4 p-3">
+    <h5>Liste des ventes</h5>
+    <div class="table-responsive">
+        <div class="mb-3">
+            <button class="btn btn-success" onclick="exportExcel()">Export Excel</button>
+            <button class="btn btn-danger" onclick="exportPDF()">Export PDF</button>
+        </div>
+        <small id="tableInfoVente" class="text-muted"></small>
+        <table class="table table-hover align-middle">
+            <thead>
+                <tr>
+                    <th scope="col">Date vente</th>
+                    <th scope="col">Montant vente</th>
+                    <th scope="col">Montant payé</th>
+                    <th scope="col">Montant Remise</th>
+                    <th scope="col">Montant restant</th>
+                    <th scope="col">Boutique</th>
+                </tr>
+            </thead>
+            <tbody id="ventesTable" class="table-group-divider"></tbody>
+        </table>
+    </div>
+    <nav>
+        <ul class="pagination justify-content-center mt-3" id="ventesPagination"></ul>
+    </nav>
+</div>
+
+<script src="{% static 'dashboard/js/rapport.js' %}" defer></script>
+{% endblock %}

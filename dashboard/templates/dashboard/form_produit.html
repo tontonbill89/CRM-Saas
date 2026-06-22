@@ -1,0 +1,59 @@
+<form method="post" class="needs-validation" novalidate>
+    {% csrf_token %}
+    
+    <div class="row g-3">
+        <div class="col-md-12">
+            <label class="form-label">Nom produit</label>
+            {{ form.nom_produit }}
+        </div>
+
+        <div class="col-md-8">
+            <label class="form-label">Description</label>
+            {{ form.description }}
+        </div>
+        <div class="col-md-4">
+            <label class="form-label">Format</label>
+            {{ form.format }}
+        </div>
+
+        <div class="col-md-4">
+            <label class="form-label">Prix carton</label>
+            {{ form.prix_carton }}
+        </div>
+        <div class="col-md-4">
+            <label class="form-label">Prix grossiste</label>
+            {{ form.prix_semi_gros }}
+        </div>
+        <div class="col-md-4">
+            <label class="form-label">Prix point de vente</label>
+            {{ form.prix_achat_pdv }}
+        </div>
+
+        <div class="col-md-4">
+            <label class="form-label">Prix consom. PDV</label>
+            {{ form.prix_consommateur }}
+        </div>
+        <div class="col-md-4">
+            <label class="form-label">Catégorie</label>
+            {{ form.id_categorie }}
+        </div>
+        <div class="col-md-4">
+            <label class="form-label">Packaging</label>
+            {{ form.id_packaging }}
+        </div>
+        
+        <div class="col-md-6">
+            <label class="form-label">Marque</label>
+            {{ form.id_marque }}
+        </div>
+        <div class="col-md-6">
+            <label class="form-label">Famille</label>
+            {{ form.id_famille }}
+        </div>
+
+    </div>
+
+    <div class="mt-4">
+        <button type="submit" class="btn btn-success w-100">Enregistrer le produit</button>
+    </div>
+</form>

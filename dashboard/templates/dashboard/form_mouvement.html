@@ -1,0 +1,61 @@
+<form method="post">
+
+    {% csrf_token %}
+
+    <div class="mb-3">
+        <label>Date du mouvement</label>
+        {{ form.date_mvt }}
+    </div>
+    <div class="mb-3">
+        <label>Mode mouvement</label>
+        {{ form.mode_mvt }}
+
+        {% if form.mode_mvt.errors %}
+            <div class="text-danger">
+                {{ form.mode_mvt.errors }}
+            </div>
+        {% endif %}
+    </div>
+    <div class="mb-3">
+        <label>Destinataire</label>
+        {{ form.destinataire }}
+    </div>
+    <div class="row mt-3">
+
+    <div class="col-md-5">
+        <label>Produit</label>
+        <select id="produitSelect" class="form-select"></select>
+    </div>
+
+    <div class="col-md-3">
+        <label>Quantité</label>
+        <input type="number" id="quantiteInput" min="1" class="form-control">
+    </div>
+
+    <div class="col-md-2">
+        <label>&nbsp;</label>
+        <button type="button" class="btn btn-primary w-300" onclick="ajouterProduit()">
+            Ajouter
+        </button>
+    </div>
+</div>
+    <hr>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Produit</th>
+                <th>Quantité</th>
+                <th width="80">Action</th>
+            </tr>
+        </thead>
+        <tbody id="tbodyProduits">
+        </tbody>
+    </table>
+    <input type="hidden" id="lignesMouvement" name="lignesMouvement">
+
+    <div class="text-end mt-3">
+        <button type="submit" class="btn btn-success">
+            Enregistrer
+        </button>
+    </div>
+</form>

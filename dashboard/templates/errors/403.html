@@ -1,0 +1,20 @@
+{% extends 'dashboard/base.html' %}
+
+{% block content %}
+<div class="container text-center mt-5">
+    <i class="fas fa-lock fa-5x text-danger">
+        <h1 class="display-1 text-danger">403</h1>
+    </i>
+    <h3>Accès refusé</h3>
+
+    <p>
+        Vous n'avez pas les autorisations nécessaires
+        pour accéder à cette page.
+    </p>
+
+    <a href="/rapport/" class="btn btn-primary">
+        Retour au Dashboard
+    </a>
+
+</div>
+{% endblock %}

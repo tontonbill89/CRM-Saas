@@ -1,0 +1,86 @@
+{% extends 'dashboard/base.html' %}
+
+{% block content %}
+{% load static %}
+<div class="card mt-5 p-4">
+    <h5>Liste des entrepots</h5>
+    <div class="table-responsive">
+        <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center mb-3">
+
+            <!-- Recherche -->
+            <input type="text" id="searchInput" class="form-control w-auto"
+                placeholder="Rechercher...">
+
+            <!-- Filtres -->
+            <select id="filterEquipe" class="form-select w-auto">
+                <option value=""></option>
+            </select>
+
+            <select id="filterSecteur" class="form-select w-auto">
+                <option value=""></option>
+            </select>
+
+            <small id="tableInfoEntrepot" class="text-muted"></small>
+        </div>
+        <div>
+            <button class="btn btn-success" onclick="openAddModal()">+ Ajouter</button>
+        </div>
+        </br>
+        <table class="table table-hover align-right">
+            <thead>
+                <tr>
+                    <th scope="col">N° entrepot</th>
+                    <th scope="col">Gestionnaire</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody id="entrepotsTable" class="table-group-divider"></tbody>
+        </table>
+    </div>
+</div>
+
+<div class="card mt-5 p-4">
+    <h5>Stock entrepot</h5>
+    <div class="table-responsive">
+        <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center mb-3">
+
+            <!-- Filtres -->
+            <select id="filterEntrepot" class="form-select w-auto">
+                <option value=""></option>
+            </select>
+
+            <small id="tableInfoStock" class="text-muted"></small>
+        </div>
+        </br>
+        <table class="table table-hover align-right">
+            <thead>
+                <tr>
+                    <th scope="col">ID stock</th>
+                    <th scope="col">Produit</th>
+                    <th scope="col">stock disponible</th>
+                    <th scope="col">Entrepot</th>
+                </tr>
+            </thead>
+            <tbody id="stockTable" class="table-group-divider"></tbody>
+        </table>
+    </div>
+    <nav>
+        <ul class="pagination justify-content-center mt-3" id="pagination"></ul>
+    </nav>
+</div>
+
+<div class="modal fade" id="entrepotModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalTitle">Entrepot</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div id="modalBody" class="modal-body">
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="{% static 'dashboard/js/entrepot.js' %}" defer></script>
+{% endblock %}

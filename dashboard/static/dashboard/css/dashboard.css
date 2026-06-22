@@ -1,0 +1,32 @@
+/* static/css/dashboard.css */
+
+body {
+background: #f4f6f9;
+}
+
+/* couleur principale */
+
+
+/* cartes */
+.card-stat {
+border-radius: 12px;
+color: white;
+padding: 20px;
+transition: 0.3s;
+}
+.card-stat:hover {
+transform: translateY(-5px);
+}
+
+/* couleurs proches de ton UI */
+.bg-dark-custom { background: #2c2c2c; }
+.bg-purple { background: linear-gradient(45deg,#6a11cb,#2575fc); }
+.bg-green { background: linear-gradient(45deg,#1abc9c,#16a085); }
+.bg-blue { background: linear-gradient(45deg,#3498db,#2c3e50); }
+.bg-pink { background: linear-gradient(45deg,#ff416c,#ff4b2b); }
+.bg-orange { background: linear-gradient(45deg,#f39c12,#e67e22); }
+
+.icon {
+font-size: 28px;
+opacity: 0.8;
+}

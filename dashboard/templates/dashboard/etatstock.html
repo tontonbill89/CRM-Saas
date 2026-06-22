@@ -1,0 +1,38 @@
+{% extends 'dashboard/base.html' %}
+
+{% block content %}
+{% load static %}
+
+
+<div class="card mt-5 p-4">
+    <h5>Etat des stocks</h5>
+    <div class="row mb-3">
+        <label class="form-label">Utilisateur</label>
+        <select id="UtilisateurStock" class="form-select">
+            <option value="">
+                Sélectionner
+            </option>
+        </select>
+        <small id="tableInfo" class="text-muted"></small>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-hover align-middle">
+            <thead>
+                <tr>
+                    <th>Produit</th>
+                    <th>Quantité</th>
+                    <th>État stock</th>
+                </tr>
+            </thead>
+
+            <tbody id="TableEtatStock" class="table-group-divider"></tbody>
+        </table>
+    </div>
+    <nav>
+        <ul class="pagination justify-content-center mt-3" id="pagination"></ul>
+    </nav>
+</div>
+
+<script src="{% static 'dashboard/js/stockentrepot.js' %}" defer></script>
+
+{% endblock %}

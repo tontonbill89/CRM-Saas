@@ -1,0 +1,83 @@
+{% extends 'dashboard/base.html' %}
+
+{% block content %}
+{% load static %}
+<div class="card mt-5 p-4">
+    <h5>Liste des clients</h5>
+    <div class="table-responsive">
+        <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center mb-3">
+
+            <!-- Recherche -->
+            <input type="text" id="searchInput" class="form-control w-auto"
+                placeholder="Rechercher...">
+
+            <!-- Filtres -->
+            <select id="filterVille" class="form-select w-auto">
+                <option value=""></option>
+            </select>
+
+            <select id="filterStatut" class="form-select w-auto">
+                <option value=""></option>
+            </select>
+
+            <select id="pageSize" class="form-select w-auto">
+                <option value="10">10</option>
+                <option value="50" selected>50</option>
+                <option value="100">100</option>
+            </select>
+
+            <!-- Export -->
+            <div>
+                <button class="btn btn-success" onclick="exportData('excel')">Excel</button>
+                <button class="btn btn-outline-secondary" onclick="exportData('csv')">CSV</button>
+            </div>
+
+            <small id="tableInfo" class="text-muted"></small>
+        </div>
+        <div>
+            <button class="btn btn-success" onclick="openAddModal()">+ Ajouter un client</button>
+        </div>
+        <table class="table table-hover align-middle">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nom boutique</th>
+                    <th scope="col">Tel gérant</th>
+                    <th scope="col">Statut</th>
+                    <th scope="col">Catégorie</th>
+                    <th scope="col">Arrond.</th>
+                    <th scope="col">Ville</th>
+                    <th scope="col">Latitude</th>
+                    <th scope="col">Longitude</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody id="clientsTable" class="table-group-divider"></tbody>
+        </table>
+    </div>
+    <nav>
+        <ul class="pagination justify-content-center mt-3" id="pagination"></ul>
+    </nav>
+
+</div>
+
+<div class="card mt-4 p-3">
+    <h5>Carte des clients</h5>
+    <div id="map" style="height:500px;"></div>
+</div>
+
+<div class="modal fade" id="clientModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalTitle">Client</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div id="modalBody" class="modal-body">
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="{% static 'dashboard/js/client.js' %}" defer></script>
+{% endblock %}

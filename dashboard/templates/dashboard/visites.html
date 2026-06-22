@@ -1,0 +1,64 @@
+
+{% extends 'dashboard/base.html' %}
+
+{% block content %}
+{% load static %}
+<div class="card mt-5 p-4">
+    <h5>Liste des clients</h5>
+    <div class="table-responsive">
+        <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center mb-3">
+
+            <!-- Recherche -->
+            <input type="text" id="searchInput" class="form-control w-auto"
+                placeholder="Rechercher...">
+
+            <!-- Filtres -->
+
+            <select id="filterEquipe" class="form-select w-auto">
+                <option value=""></option>
+            </select>
+
+            <select id="filterSecteur" class="form-select w-auto">
+                <option value=""></option>
+            </select>
+
+            <select id="pageSize" class="form-select w-auto">
+                <option value="10">10</option>
+                <option value="50" selected>50</option>
+                <option value="100">100</option>
+            </select>
+
+            <!-- Export -->
+            <div>
+                <button class="btn btn-success" onclick="exportData('excel')">Excel</button>
+                <button class="btn btn-outline-secondary" onclick="exportData('csv')">CSV</button>
+            </div>
+
+            <small id="tableInfo" class="text-muted"></small>
+        </div>
+
+        <table class="table table-hover align-middle">
+            <thead>
+                <tr>
+                    <th scope="col">Date de visite</th>
+                    <th scope="col">Nom boutique</th>
+                    <th scope="col">Catégorie</th>
+                    <th scope="col">Sous catégorie</th>
+                    <th scope="col">Quartier</th>
+                    <th scope="col">Nom agent</th>
+                    <th scope="col">Heure début</th>
+                    <th scope="col">Heure fin</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody id="visitesTable" class="table-group-divider"></tbody>
+        </table>
+    </div>
+    <nav>
+        <ul class="pagination justify-content-center mt-3" id="pagination"></ul>
+    </nav>
+
+</div>
+
+<script src="{% static 'dashboard/js/visite.js' %}" defer></script>
+{% endblock %}

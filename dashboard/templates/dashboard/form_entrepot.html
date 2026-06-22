@@ -1,0 +1,20 @@
+<form method="post" class="needs-validation" novalidate>
+    {% csrf_token %}
+    
+    <div class="row g-3">
+        
+        <div class="col-md-8">
+            <label class="form-label">ID Entrepot</label>
+            {{ form.id_entrepot }}
+        </div>
+        <div class="col-md-4">
+            <label class="form-label">Gestionnaire</label>
+            {{ form.login }}
+        </div>
+
+    </div>
+
+    <div class="mt-4">
+        <button type="submit" class="btn btn-success w-100">Enregistrer l'entrepot'</button>
+    </div>
+</form>

@@ -1,0 +1,105 @@
+{% extends 'dashboard/base.html' %}
+
+{% block content %}
+{% load static %}
+
+<div class="container-fluid">
+
+    <h3></h3>
+    <button class="btn btn-success" onclick="openAddModal()">Nouveau mouvement</button>
+</div>
+
+<div class="card mt-5 p-4">
+    <h5>Historique des mouvement</h5>
+
+    <div class="row mb-3">
+        <div class="col-md-3">
+            <label>Date début</label>
+            <input type="date" id="dateDebut" class="form-control">
+        </div>
+        <div class="col-md-3">
+            <label>Date fin</label>
+            <input type="date" id="dateFin" class="form-control">
+        </div>
+        <div class="col-md-2">
+            <label>&nbsp;</label>
+            <button type="button" class="btn btn-primary w-100" onclick="chargerMouvementsHistorique()">
+                Rechercher
+            </button>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-md-3">
+            <label class="form-label">
+                Statut
+            </label>
+            <select id="filtreStatut" class="form-select">
+                <option value="">Tous</option>
+                <option value="En attente">En attente</option>
+                <option value="Validé">Validé</option>
+                <option value="Refusé">Refusé</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center mb-3">
+        <small id="tableInfo" class="text-muted"></small>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-hover align-middle">
+            <thead>
+                <tr>
+                    <th>N°</th>
+                    <th>Date mvt</th>
+                    <th>Source</th>
+                    <th>Destinataire</th>
+                    <th>mode mvt</th>
+                    <th>Statut</th>
+                    <th>Date validation</th>
+                </tr>
+            </thead>
+
+            <tbody id="TableMouvementsHistorique" class="table-group-divider"></tbody>
+        </table>
+    </div>
+    <nav>
+        <ul class="pagination justify-content-center mt-3" id="pagination"></ul>
+    </nav>
+
+</div>
+
+<div class="card mt-5 p-4">
+    <h5>Détails Mouvements</h5>
+    <div class="table-responsive">
+        <table class="table table-hover align-middle">
+            <thead>
+                <tr>
+                    <th>N°</th>
+                    <th>Produit</th>
+                    <th>Quantité</th>
+                </tr>
+            </thead>
+
+            <tbody id="TableDetailsMouvements" class="table-group-divider"></tbody>
+        </table>
+    </div>
+</div>
+
+
+<div class="modal fade" id="mouvementModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalTitle">Enregistrement mouvement</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div id="modalBody" class="modal-body">
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="{% static 'dashboard/js/mouvementstock.js' %}" defer></script>
+
+{% endblock %}

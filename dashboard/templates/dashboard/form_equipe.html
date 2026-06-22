@@ -1,0 +1,20 @@
+<form method="post" class="needs-validation" novalidate>
+    {% csrf_token %}
+    
+    <div class="row g-3">
+        
+        <div class="col-md-8">
+            <label class="form-label">ID</label>
+            {{ form.id_equipe }}
+        </div>
+        <div class="col-md-4">
+            <label class="form-label">Nom équipe</label>
+            {{ form.nom_equipe }}
+        </div>
+
+    </div>
+
+    <div class="mt-4">
+        <button type="submit" class="btn btn-success w-100">Enregistrer l'équipe</button>
+    </div>
+</form>

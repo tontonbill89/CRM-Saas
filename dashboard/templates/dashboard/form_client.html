@@ -1,0 +1,71 @@
+<form method="post" class="needs-validation" novalidate>
+    {% csrf_token %}
+    
+    <div class="row g-3">
+        <div class="col-md-6">
+            <label class="form-label">Nom de la boutique</label>
+            {{ form.nom_boutique }}
+        </div>
+        <div class="col-md-6">
+            <label class="form-label">Nom du gérant</label>
+            {{ form.nom_gerant }}
+        </div>
+
+        <div class="col-md-4">
+            <label class="form-label">Téléphone</label>
+            {{ form.tel_gerant }}
+        </div>
+        <div class="col-md-4">
+            <label class="form-label">Sous catégorie</label>
+            {{ form.sub_cat }}
+        </div>
+        <div class="col-md-4">
+            <label class="form-label">Catégorie</label>
+            {{ form.cat }}
+        </div>
+
+        <div class="col-md-3">
+            <label class="form-label">Region</label>
+            {{ form.region }}
+        </div>
+        <div class="col-md-3">
+            <label class="form-label">Ville</label>
+            {{ form.ville }}
+        </div>
+        <div class="col-md-3">
+            <label class="form-label">Arrondissement</label>
+            {{ form.arrond }}
+        </div>
+        <div class="col-md-3">
+            <label class="form-label">Quartier</label>
+            {{ form.quartier }}
+        </div>
+
+        <div class="col-md-6">
+            <label class="form-label">Latitude</label>
+            {{ form.lat }}
+        </div>
+        <div class="col-md-6">
+            <label class="form-label">Longitude</label>
+            {{ form.lon }}
+        </div>
+
+        <div class="col-md-4">
+            <label class="form-label">Équipe</label>
+            {{ form.id_equipe }}
+        </div>
+        <div class="col-md-4">
+            <label class="form-label">Secteur</label>
+            {{ form.id_secteur }}
+        </div>
+        <div class="col-md-4">
+            <label class="form-label">Statut</label>
+            {{ form.statut }}
+        </div>
+
+    </div>
+
+    <div class="mt-4">
+        <button type="submit" class="btn btn-success w-100">Enregistrer le client</button>
+    </div>
+</form>

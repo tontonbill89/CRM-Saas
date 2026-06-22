@@ -1,0 +1,21 @@
+{% extends 'dashboard/base.html' %}
+
+{% block content %}
+{% load static %}
+
+<div class="modal fade" id="mouvementModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalTitle">Enregistrement mouvement</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div id="modalBody" class="modal-body">
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="{% static 'dashboard/js/mouvementenreg.js' %}" defer></script>
+
+{% endblock %}

@@ -1,0 +1,103 @@
+
+{% extends 'dashboard/base.html' %}
+
+{% block content %}
+{% load static %}
+<div class="card mt-5 p-4">
+    <h5>Liste des ventes</h5>
+    <div class="table-responsive">
+        <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center mb-3">
+            <div class="col">
+                <label>Du</label>
+                <input type="date" id="date_start" class="form-control w-auto" onchange="loadVentes(1)">
+            </div>
+
+            <div class="col">
+                <label>Au</label>
+                <input type="date" id="date_end" class="form-control w-auto" onchange="loadVentes(1)">
+            </div>
+
+            <div class="col">
+                <label>Equipe</label>
+                <select id="filterEquipe" class="form-select w-auto">
+                    <option value=""></option>
+                </select>
+            </div>
+            
+            <div class="col">
+                <label>ligne</label>
+                <select id="pageSize" class="form-select  w-auto">
+                    <option value="10" selected>10</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                </select>
+            </div>  
+                     
+            <div class="col">
+                <!-- Export -->
+                    <label>Exporter en format</label>
+                <div>
+                    <button class="btn btn-success" onclick="exportData('excel')">Excel xlsx</button>
+                    <button class="btn btn-outline-secondary" onclick="exportData('csv')">CSV</button>
+                </div>
+            </div>
+            
+            <small id="tableInfo" class="text-muted"></small>
+            
+        </div>
+        <table class="table table-hover align-middle">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Date vente</th>
+                    <th scope="col">Produit</th>
+                    <th scope="col">Quantité</th>
+                    <th scope="col">Prix unitaire</th>
+                    <th scope="col">Montant total</th>
+                    <th scope="col">Agent</th>
+                    <th scope="col">Détail</th>
+                </tr>
+            </thead>
+            <tbody id="ventesTable" class="table-group-divider"></tbody>
+        </table>
+    </div>
+    <nav>
+        <ul class="pagination justify-content-center mt-3" id="pagination"></ul>
+    </nav>
+
+</div>
+
+<div class="row ">
+    <div class="col-md-12">
+        <div class="card mt-5 p-4">
+            <h5>Evolution des ventes</h5>
+            <canvas id="evolutionChart"></canvas>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card mt-5 p-4">
+            <h5>Ventes par equipe</h5>
+            <canvas id="teamChart"></canvas>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card mt-5 p-4">
+            <h5>Top Produits</h5>
+            <canvas id="topProduit"></canvas>
+        </div>
+    </div>
+</div>
+
+<div class="row ">
+    
+    <div class="col-md-12">
+        <div class="card mt-5 p-4">
+            <h5></h5>
+            <canvas id="topProduit"></canvas>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="{% static 'dashboard/js/vente.js' %}" defer></script>
+{% endblock %}

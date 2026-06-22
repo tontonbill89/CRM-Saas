@@ -1,0 +1,46 @@
+<form method="post" class="needs-validation" novalidate>
+    {% csrf_token %}
+    
+    <div class="row g-3">
+        <div class="col-md-6">
+            <label class="form-label">Login</label>
+            {{ form.login }}
+        </div>
+        
+        <div class="col-md-8">
+            <label class="form-label">Nom utilisateur</label>
+            {{ form.nom_user }}
+        </div>
+        <div class="col-md-4">
+            <label class="form-label">Téléphone</label>
+            {{ form.tel_user }}
+        </div>
+
+        <div class="col-md-6">
+            <label class="form-label">Adresse email</label>
+            {{ form.email }}
+        </div>
+        <div class="col-md-6">
+            <label class="form-label">Mot de passe</label>
+            {{ form.mot_de_passe }}
+        </div>
+
+        <div class="col-md-4">
+            <label class="form-label">Equipe</label>
+            {{ form.id_equipe }}
+        </div>
+        <div class="col-md-4">
+            <label class="form-label">Secteur</label>
+            {{ form.id_secteur }}
+        </div>
+        <div class="col-md-4">
+            <label class="form-label">Profile</label>
+            {{ form.id_profile_user }}
+        </div>
+
+    </div>
+
+    <div class="mt-4">
+        <button type="submit" class="btn btn-success w-100">Enregistrer l'utilisateur</button>
+    </div>
+</form>

@@ -1,0 +1,114 @@
+{% extends 'dashboard/base.html' %}
+
+{% block content %}
+{% load static %}
+<div class="card mt-5 p-4">
+    <h5><b>Parametres</b></h5>
+    
+    <div class="row ">
+        <div class="col-md-6">
+            <div class="card mt-5 p-4">
+                <h5><span class="badge bg-body-secondary text-black">Equipes</span></h5>
+                <div>
+                    <button class="btn btn-success" onclick="openAddModalEquipe()">+ Ajouter</button>
+                </div>
+                <table class="table table-hover align-middle">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Equipe</th>
+                            <th scope="col">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="equipeTable" class="table-group-divider"></tbody>
+                </table> 
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card mt-5 p-4">
+                <h5><span class="badge bg-body-secondary text-black">Profile utilisateur</span></h5>
+                <div>
+                    <button class="btn btn-success" onclick="openAddModalProfile()">+ Ajouter</button>
+                </div>
+                <table class="table table-hover align-middle">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Profile</th>
+                            <th scope="col">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="profileTable" class="table-group-divider"></tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card mt-5 p-4">
+                <h5><span class="badge bg-body-secondary text-black">Secteur</span></h5>
+                <div>
+                    <button class="btn btn-success" onclick="openAddModalSecteur()">+ Ajouter</button>
+                </div>
+                <table class="table table-hover align-middle">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Secteur</th>
+                            <th scope="col">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="secteurTable" class="table-group-divider"></tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card mt-5 p-4">
+                <h5><span class="badge bg-body-secondary text-black">test</span></h5>
+                <div>
+                    <button class="btn btn-success" onclick="">+ Ajouter</button>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+        
+</div>
+
+<div class="modal fade" id="equipeModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalTitleEquipe"></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div id="modalBodyEquipe" class="modal-body">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="secteurModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalTitleSecteur"></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div id="modalBodySecteur" class="modal-body">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="profileModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalTitleProfile">Profil utilisateur</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div id="modalBodyProfile" class="modal-body">
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="{% static 'dashboard/js/config.js' %}" defer></script>
+{% endblock %}

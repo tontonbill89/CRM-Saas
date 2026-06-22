@@ -1,0 +1,106 @@
+<!-- templates/dashboard.html -->
+
+{% extends 'dashboard/base.html' %}
+
+{% block content %}
+{% load static %}
+
+<h3 class="mb-4">Rapport Paramétré</h3>
+
+<div class="row mb-4">
+    <div class="col-md-3">
+        <label>Du</label>
+        <input type="date" id="date_start" class="form-control">
+    </div>
+    <div class="col-md-3">
+        <label>Au</label>
+        <input type="date" id="date_end" class="form-control">
+    </div>
+    <div class="col-md-3">
+        <label>  </label>
+        <button class="btn btn-success text-white w-100" onclick="applyFilters()">Filtrer</button>
+    </div>
+</div>
+
+<div class="row mt-4 g-3">
+
+    <div class="col-md-3">
+        <div class="card-stat bg-dark-custom">
+            <h3 id="nombre_clients_kpi">0</h3>
+            <p>Client inscrit</p>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card-stat bg-purple">
+            <h3 id="nombre_produits_kpi">0</h3>
+            <p>Produit SDF</p>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card-stat bg-purple">
+            <h3 id="moyenne_visite_jour_kpi">0</h3>
+            <p>Moyenne vistes / jour</p>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card-stat bg-green">
+            <h3 id="nombre_visites_kpi">00</h3>
+            <p>Visites réalisées</p>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card-stat bg-blue">
+            <h3 id="clients_visites_kpi">00</h3>
+            <p>Clients visités</p>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card-stat bg-green">
+            <h3 id="conversion_kpi">00%</h3>
+            <p>Taux de conversion</p>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card-stat bg-blue">
+            <h3 id="couverture_kpi">00%</h3>
+            <p>Couverture client</p>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card-stat bg-orange">
+            <h3 id="montant_ventes_kpi">0</h3>
+            <p>Montant ventes</p>
+        </div>
+    </div>
+
+</div>
+
+<div class="row ">
+    <div class="col-md-6">
+        <div class="card mt-5 p-4">
+            <h5>Evolution des ventes</h5>
+            <canvas id="lineChart"></canvas>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card mt-5 p-4">
+            <h5>Top Produits</h5>
+            <canvas id="barChart"></canvas>
+        </div>
+    </div>
+</div>
+
+<div class="card mt-4 p-3">
+    <h5>Carte des clients</h5>
+    <div id="map" style="height:500px;"></div>
+</div>
+
+<script src="{% static 'dashboard/js/dashboard.js' %}" defer></script>
+{% endblock %}
