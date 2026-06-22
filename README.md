@@ -1,3 +1,10 @@
+# CRM-SaaS
+
+![Python](https://img.shields.io/badge/Python-3.13-blue)
+![Django](https://img.shields.io/badge/Django-5.x-green)
+![MySQL](https://img.shields.io/badge/MySQL-Database-blue)
+![License](https://img.shields.io/badge/License-MIT-yellow)
+
 # CRM-SaaS – Gestion des Stocks et des Flux Logistiques
 
 Application web développée avec **Django** permettant de gérer les stocks, les mouvements de marchandises, les utilisateurs et les entrepôts.
