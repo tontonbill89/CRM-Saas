@@ -94,9 +94,17 @@ Ce projet applique plusieurs bonnes pratiques visant à limiter l'impact environ
 
 ## Captures d'écran
 
+### Login
+
+![Login](screenshots/login.png)
+
 ### Tableau de bord
 
 ![Dashboard](screenshots/dashboard.png)
+
+### Gestion des produits
+
+![Stock](screenshots/produits.png)
 
 ### Gestion des stocks
 
