@@ -55,6 +55,16 @@ Le projet est actuellement en évolution avec l'ajout d'une API REST destinée �
 - Consultation des stocks
 - Synchronisation avec une application mobile
 
+## Éco-conception
+
+Ce projet applique plusieurs bonnes pratiques visant à limiter l'impact environnemental :
+
+- Pagination des listes pour limiter les données transférées.
+- Optimisation des requêtes SQL.
+- Chargement asynchrone (AJAX) des données.
+- Réutilisation des composants de l'interface.
+- Gestion optimisée des fichiers statiques.
+
 ---
 
 ## Technologies
